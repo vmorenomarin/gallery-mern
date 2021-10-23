@@ -1,0 +1,23 @@
+{
+  "name": "gallery-mern",
+  "version": "1.0.0",
+  "description": "Este repositorio contiene los archivos para la construcción de un backend con Expreess que permite cargar archivos a un servidor y almacenarlos en una base de datos. Se construye igualmente una frontend para la funcionalidad.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "express",
+    "react",
+    "backend",
+    "frontend"
+  ],
+  "author": "Víctor Moreno Marín",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "mongoose": "^6.0.12",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.14"
+  }
+}
