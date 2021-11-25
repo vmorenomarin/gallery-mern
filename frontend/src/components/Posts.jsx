@@ -14,13 +14,13 @@ export const Posts = () => {
 
   const getData = async () => {
     try {
-      const { data } = await axios.get("http://localhost:4000/list");
+      const { data } = await axios.get("/list");
       setPosts(data.posts);
     } catch (error) {
       if (!error.response.data.ok) {
         return alert(error.response.data.message);
       }
-      console.log("Error in function getData", error);
+      console.log("Error in function getData", error.message);
     }
   };
 
@@ -41,7 +41,7 @@ export const Posts = () => {
       }).then(async (result) => {
         if (result.isConfirmed) {
           const { data } = await axios.delete(
-            "http://localhost:4000/delete/" + id
+            "/delete/" + id
           );
           getData();
           Swal.fire({
@@ -69,7 +69,7 @@ export const Posts = () => {
         <div className="row row-cols-1 row-cols-md-3 g-4">
           {posts.map((post) => (
             <div className="col-12 col-md-6 col-xxl-4" key={post._id}>
-              <div className="card h-100 border-0 transform-on-hover shadow">
+              <div className="card h-100 border-0 transform-on-hover shadow pb-4">
                 <img src={post.img} />
                 <div className="card-body">
                   <h6 className="card-title fw-bold">{post.title}</h6>
@@ -77,13 +77,13 @@ export const Posts = () => {
                 </div>
                 <div className="d-flex justify-content-around mb">
                   <button
-                    className="btn btn-outline-danger"
+                    className="btn btn-lg  btn-danger"
                     onClick={() => deletePost(post._id)}
                   >
                     <i className="bi bi-trash"></i>
                   </button>
                   <button
-                    className="btn btn-outline-warning"
+                    className="btn btn-lg btn-warning"
                     onClick={() => updatePost(post._id)}
                   >
                     <i className="bi bi-pen"></i>
